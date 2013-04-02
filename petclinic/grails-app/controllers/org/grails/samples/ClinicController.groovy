@@ -11,4 +11,9 @@ class ClinicController {
 	def hayvan(){
 		
 	}
+	
+	
+	def hebele(){
+		
+	}
 }
