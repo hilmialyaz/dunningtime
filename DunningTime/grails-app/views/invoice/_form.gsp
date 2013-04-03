@@ -2,6 +2,14 @@
 
 
 
+			<div class="control-group fieldcontain ${hasErrors(bean: invoiceInstance, field: 'policy', 'error')} ">
+				<label for="policy" class="control-label"><g:message code="invoice.policy.label" default="Policy" /></label>
+				<div class="controls">
+					<g:select id="policy" name="policy.id" from="${com.dunningtime.domains.Policy.list()}" optionKey="id" value="${invoiceInstance?.policy?.id}" class="many-to-one" noSelection="['null': '']"/>
+					<span class="help-inline">${hasErrors(bean: invoiceInstance, field: 'policy', 'error')}</span>
+				</div>
+			</div>
+
 			<div class="control-group fieldcontain ${hasErrors(bean: invoiceInstance, field: 'createdDate', 'error')} required">
 				<label for="createdDate" class="control-label"><g:message code="invoice.createdDate.label" default="Created Date" /><span class="required-indicator">*</span></label>
 				<div class="controls">
@@ -31,6 +39,14 @@
 				<div class="controls">
 					<bs:datePicker name="dueDate" precision="day"  value="${invoiceInstance?.dueDate}"  />
 					<span class="help-inline">${hasErrors(bean: invoiceInstance, field: 'dueDate', 'error')}</span>
+				</div>
+			</div>
+
+			<div class="control-group fieldcontain ${hasErrors(bean: invoiceInstance, field: 'dunningStatus', 'error')} required">
+				<label for="dunningStatus" class="control-label"><g:message code="invoice.dunningStatus.label" default="Dunning Status" /><span class="required-indicator">*</span></label>
+				<div class="controls">
+					<g:select id="dunningStatus" name="dunningStatus.id" from="${com.dunningtime.domains.DunningStatus.list()}" optionKey="id" required="" value="${invoiceInstance?.dunningStatus?.id}" class="many-to-one"/>
+					<span class="help-inline">${hasErrors(bean: invoiceInstance, field: 'dunningStatus', 'error')}</span>
 				</div>
 			</div>
 

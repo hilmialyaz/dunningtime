@@ -18,6 +18,13 @@
 		<tbody>
 		
 			<tr class="prop">
+				<td valign="top" class="name"><g:message code="invoice.policy.label" default="Policy" /></td>
+				
+				<td valign="top" class="value"><g:link controller="policy" action="show" id="${invoiceInstance?.policy?.id}">${invoiceInstance?.policy?.encodeAsHTML()}</g:link></td>
+				
+			</tr>
+		
+			<tr class="prop">
 				<td valign="top" class="name"><g:message code="invoice.createdDate.label" default="Created Date" /></td>
 				
 				<td valign="top" class="value"><g:formatDate date="${invoiceInstance?.createdDate}" /></td>
@@ -42,6 +49,13 @@
 				<td valign="top" class="name"><g:message code="invoice.dueDate.label" default="Due Date" /></td>
 				
 				<td valign="top" class="value"><g:formatDate date="${invoiceInstance?.dueDate}" /></td>
+				
+			</tr>
+		
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="invoice.dunningStatus.label" default="Dunning Status" /></td>
+				
+				<td valign="top" class="value"><g:link controller="dunningStatus" action="show" id="${invoiceInstance?.dunningStatus?.id}">${invoiceInstance?.dunningStatus?.encodeAsHTML()}</g:link></td>
 				
 			</tr>
 		

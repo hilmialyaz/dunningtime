@@ -17,6 +17,8 @@
 		<thead>
 			<tr>
 			
+				<th><g:message code="invoice.policy.label" default="Policy" /></th>
+			
 				<g:sortableColumn property="createdDate" title="${message(code: 'invoice.createdDate.label', default: 'Created Date')}" />
 			
 				<g:sortableColumn property="currency" title="${message(code: 'invoice.currency.label', default: 'Currency')}" />
@@ -25,9 +27,7 @@
 			
 				<g:sortableColumn property="dueDate" title="${message(code: 'invoice.dueDate.label', default: 'Due Date')}" />
 			
-				<g:sortableColumn property="invoiceDate" title="${message(code: 'invoice.invoiceDate.label', default: 'Invoice Date')}" />
-			
-				<g:sortableColumn property="invoiceDescription" title="${message(code: 'invoice.invoiceDescription.label', default: 'Invoice Description')}" />
+				<th><g:message code="invoice.dunningStatus.label" default="Dunning Status" /></th>
 			
 			</tr>
 		</thead>
@@ -35,7 +35,9 @@
 		<g:each in="${invoiceInstanceList}" status="i" var="invoiceInstance">
 			<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 			
-				<td><g:link action="show" id="${invoiceInstance.id}">${fieldValue(bean: invoiceInstance, field: "createdDate")}</g:link></td>
+				<td><g:link action="show" id="${invoiceInstance.id}">${fieldValue(bean: invoiceInstance, field: "policy")}</g:link></td>
+			
+				<td><g:formatDate date="${invoiceInstance.createdDate}" /></td>
 			
 				<td>${fieldValue(bean: invoiceInstance, field: "currency")}</td>
 			
@@ -43,9 +45,7 @@
 			
 				<td><g:formatDate date="${invoiceInstance.dueDate}" /></td>
 			
-				<td><g:formatDate date="${invoiceInstance.invoiceDate}" /></td>
-			
-				<td>${fieldValue(bean: invoiceInstance, field: "invoiceDescription")}</td>
+				<td>${fieldValue(bean: invoiceInstance, field: "dunningStatus")}</td>
 			
 			</tr>
 		</g:each>
